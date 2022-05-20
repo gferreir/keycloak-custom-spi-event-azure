@@ -4,9 +4,7 @@ ARG MAVEN_MIRROR_URL
 ENV MAVEN_MIRROR_URL=${MAVEN_MIRROR_URL}
 
 WORKDIR /opt/java/app/
-COPY ./pom.xml ./
-COPY ./src ./
-
+COPY . ./
 USER root
 RUN chmod -R 777 /opt/java/app
 
