@@ -159,11 +159,11 @@ public class Producer {
 		String adminEventHubName = System.getenv("AZURE_EVENT_HUB_ADMIN_NAME");
 
 		if(!eventType.equals("normalEvent")){
-			if(!(adminEventHubName == null)){
-				eventHubName = adminEventHubName;
-			}else{
+			if(adminEventHubName == null || adminEventHubName.isEmpty()){
 				logger.warn("AZURE_EVENT_HUB_ADMIN_NAME environment variable is not setted. "+
 				            "AZURE_EVENT_HUB_NAME will be used instead.");
+			}else{
+				eventHubName = adminEventHubName;
 			}
 		}
 
